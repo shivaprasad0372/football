@@ -1,0 +1,61 @@
+  <div class="container-fluid header text-center">
+    <h3>League Detail Page</h3>
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#">Teams</a>
+      <div class ="row">
+        <div class="col-md-5 col-md-offset-2" id="result">
+          <table align = "center" class="table table-striped table-hover ">
+            <thead>
+              <tr>
+                <th><center>Teams</center></th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat = "m in dc.detailsResponse.teams">
+                <th><img ng-src="{{m.crestUrl}}" class="img-responsive" width="240" height="270"></th>
+                <td><a href="#/playersdetails" ng-click = dc.teamPlayers(m._links.self.href)>{{m.name}}</a></td>
+                <td><center>{{m.code}}</center></td>
+                <td><center>{{m.shortName}}</center></td>
+                <td><center>{{m.squadMarketValue}}</center></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </li>
+
+
+
+
+    <li class="active"><a href="#">Points Table</a>
+      <div class ="row">
+        <div class="col-md-5 col-md-offset-2" id="result">
+          <table class="table table-striped table-hover ">
+            <thead>
+              <tr>
+                <th><center>Position</center></th>
+                <th><center>Teams</center></th>
+                <th><center>Logo</center></th>
+                <th><center>Won</center></th>
+                <th><center>Loss</center></th>
+                <th><center>Goals</center></th>
+                <th><center>Points</center></th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat = "p in dc.pointsResponse.standing">
+              <td><center><a href="#/teamdetails/:uniqId" ng-click="" >{{p.position}}</a></center></td>
+              <td><center><a href="#/teamdetails/{{n.id}}" ng-click="" >{{p.teamName}}</a></center></td>
+              <td><img ng-src="{{p.crestURI}}" class="img-responsive" width="240" height="270"></td>
+              <td><center><a href="#/teamdetails/:uniqId" ng-click="" >{{p.wins}}</a></center></td>
+              <td><center><a href="#/teamdetails/:uniqId" ng-click="" >{{p.losses}}</a></center></td>
+              <td><center><a href="#/teamdetails/:uniqId" ng-click="" >{{p.goals}}</a></center></td>
+              <td><center><a href="#/teamdetails/:uniqId" ng-click="" >{{p.points}}</a></center></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </li>
+  </ul>
